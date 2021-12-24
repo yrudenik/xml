@@ -1,21 +1,34 @@
 package com.epam.training.entity;
 
+import org.w3c.dom.Node;
+
 public class DeviceType {
 
-    private String function;
+    private String deviceFunction;
     boolean isPeripheral;
 
-    public DeviceType(String function, boolean isPeripheral) {
-        this.function = function;
+    public DeviceType(String deviceFunction, boolean isPeripheral) {
+        this.deviceFunction = deviceFunction;
         this.isPeripheral = isPeripheral;
     }
 
-    public String getFunction() {
-        return function;
+    public DeviceType() {
+    }
+
+    public String getDeviceFunction() {
+        return deviceFunction;
     }
 
     public boolean isPeripheral() {
         return isPeripheral;
+    }
+
+    public void setDeviceFunction(String deviceFunction) {
+        this.deviceFunction = deviceFunction;
+    }
+
+    public void setPeripheral(boolean peripheral) {
+        isPeripheral = peripheral;
     }
 
     @Override
@@ -27,7 +40,7 @@ public class DeviceType {
             return false;
         }
         DeviceType deviceType = (DeviceType) o;
-        return function.equals(deviceType.function)
+        return deviceFunction.equals(deviceType.deviceFunction)
                 && isPeripheral == deviceType.isPeripheral;
     }
 
@@ -35,14 +48,15 @@ public class DeviceType {
     public int hashCode() {
         final int prime = 31;
         int result = 17;
-        result = prime * result + function.hashCode();
+        result = prime * result + deviceFunction.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return String.format("\nFunction = %s\nIsPeripheral = %s\n",
-                function, isPeripheral);
+        return String.format("\nDeviceFunction = %s\nIsPeripheral = %s\n",
+                deviceFunction, isPeripheral);
     }
+
 
 }

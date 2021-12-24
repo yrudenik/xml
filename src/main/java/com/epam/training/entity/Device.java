@@ -2,13 +2,13 @@ package com.epam.training.entity;
 
 public abstract class Device {
 
-    private int id;
+    private String id;
     private String name;
     private double price;
-    private String origin;
-    private DeviceType deviceType;
+    private Origin origin;
+    private DeviceType deviceType = new DeviceType();
 
-    public Device(int id, String name, double price, String origin, DeviceType deviceType){
+    public Device(String id, String name, double price, Origin origin, DeviceType deviceType){
         this.id = id;
         this.name = name;
         this.price = price;
@@ -16,7 +16,11 @@ public abstract class Device {
         this.deviceType = deviceType;
     }
 
-    public int getId() {
+    public Device() {
+
+    }
+
+    public String getId() {
         return id;
     }
 
@@ -28,12 +32,32 @@ public abstract class Device {
         return price;
     }
 
-    public String getOrigin() {
+    public Origin getOrigin() {
         return origin;
     }
 
     public DeviceType getDeviceType() {
         return deviceType;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setOrigin(Origin origin) {
+        this.origin = origin;
+    }
+
+    public void setDeviceType(DeviceType deviceType) {
+        this.deviceType = deviceType;
     }
 
     @Override
@@ -46,7 +70,7 @@ public abstract class Device {
         }
         Device device = (Device) o;
         return Double.compare(price, device.price) == 0
-                && id == device.id
+                && id.equals(device.id)
                 && name.equals(device.name)
                 && origin.equals(device.origin)
                 && deviceType.equals(device.deviceType);
@@ -56,7 +80,7 @@ public abstract class Device {
     public int hashCode() {
         final int prime = 31;
         int result = 17;
-        result = prime * result + id;
+        result = prime * result + id.hashCode();
         long bits = Double.doubleToLongBits(price);
         result = prime * result + (int) (bits ^ (bits >>> 32));
         result = prime * result + name.hashCode();

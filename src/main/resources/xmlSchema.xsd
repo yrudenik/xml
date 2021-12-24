@@ -23,7 +23,7 @@
             <element name="origin" type="tns:origin" />
             <element name="device-type" type="tns:type" />
         </sequence>
-        <attribute name="id" type="positiveInteger" use="required" />
+        <attribute name="id" type="tns:id" use="required" />
     </complexType>
 
     <complexType name="storage-device">
@@ -59,21 +59,15 @@
             <enumeration value="GERMANY"/>
         </restriction>
     </simpleType>
-
-<!--    <simpleType name="deviceId">
-        <restriction base="ID">
-            <pattern value="(\\w){1,999}"/>
-        </restriction>
-    </simpleType>-->
-
     <simpleType name="positiveInteger">
         <restriction base="int">
             <minInclusive value="0"/>
         </restriction>
     </simpleType>
+
     <complexType name="type">
         <sequence>
-            <element name="function" type="tns:function"/>
+            <element name="device-function" type="tns:function"/>
             <element name="isPeripheral" type="boolean"/>
         </sequence>
     </complexType>
@@ -85,6 +79,12 @@
             <enumeration value="AUDIO_VIDEO"/>
             <enumeration value="NETWORK_HARDWARE"/>
             <enumeration value="OTHER_DEVICES"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="id">
+        <restriction base="ID">
+            <pattern value="([a-zA-Z])[a-zA-Z0-9]{0,999}"/>
         </restriction>
     </simpleType>
 </schema>

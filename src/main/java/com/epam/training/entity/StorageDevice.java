@@ -6,8 +6,16 @@ public class StorageDevice extends Device {
 
     private int memorySize;
 
-    public StorageDevice(int id, String name, double price, String origin, DeviceType deviceType, int memorySize) {
+    public StorageDevice() {
+        super();
+    }
+
+    public StorageDevice(String id, String name, double price, String origin, DeviceType deviceType, int memorySize) {
         super(id, name, price, origin, deviceType);
+        this.memorySize = memorySize;
+    }
+
+    public void setMemorySize(int memorySize) {
         this.memorySize = memorySize;
     }
 
