@@ -1,11 +1,25 @@
 package com.epam.training.entity;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Device", propOrder = {"id", "name", "price", "origin", "deviceType"})
+@XmlSeeAlso({StorageDevice.class, InputDevice.class})
 public abstract class Device {
 
+    @XmlAttribute(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
     private String id;
+    @XmlElement(name = "name", namespace = "http://www.training.epam.com/devices", required = true)
     private String name;
+    @XmlElement(name = "price", namespace = "http://www.training.epam.com/devices", required = true)
     private double price;
+    @XmlElement(name = "origin", namespace = "http://www.training.epam.com/devices", required = true)
     private Origin origin;
+    @XmlElement(name = "DeviceType", namespace = "http://www.training.epam.com/devices", required = true)
     private DeviceType deviceType = new DeviceType();
 
     public Device(String id, String name, double price, Origin origin, DeviceType deviceType){

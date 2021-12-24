@@ -10,24 +10,20 @@ import java.util.List;
 public class Devices {
 
     @XmlElements({
-            @XmlElement(name = "storage", namespace = "http://www.training.epam.com/devices", type = StorageDevice.class),
-            @XmlElement(name = "input", namespace = "http://www.training.epam.com/devices", type = InputDevice.class)
+            @XmlElement(name = "storage-device", namespace = "http://www.training.epam.com/devices", type = StorageDevice.class),
+            @XmlElement(name = "input-device", namespace = "http://www.training.epam.com/devices", type = InputDevice.class)
     })
-
 
     private List<Device> deviceList = new ArrayList<>();
 
     public Devices(){
     }
-
     public void setDevices(List<Device> deviceList) {
         this.deviceList = deviceList;
     }
-
     public boolean add(Device device){
         return deviceList.add(device);
     }
-
     public List<Device> getDevices() {
         return deviceList;
     }

@@ -2,9 +2,17 @@ package com.epam.training.entity;
 
 import org.w3c.dom.Node;
 
-public class DeviceType {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "DeviceType", propOrder = {"device-function", "isPeripheral"})
+public class DeviceType {
+    @XmlElement(name = "device-function", namespace = "http://www.training.epam.com/devices", required = true)
     private String deviceFunction;
+    @XmlElement(name = "isPeripheral", namespace = "http://www.training.epam.com/devices", required = true)
     boolean isPeripheral;
 
     public DeviceType(String deviceFunction, boolean isPeripheral) {

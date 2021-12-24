@@ -1,16 +1,21 @@
 package com.epam.training.entity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "StorageDevice", propOrder = {"memorySize"})
 public class StorageDevice extends Device {
 
+    @XmlElement(name = "memorySize", namespace = "http://www.training.epam.com/devices", required = true)
     private int memorySize;
-
     public StorageDevice() {
         super();
     }
-
-    public StorageDevice(String id, String name, double price, String origin, DeviceType deviceType, int memorySize) {
+    public StorageDevice(String id, String name, double price, Origin origin, DeviceType deviceType, int memorySize) {
         super(id, name, price, origin, deviceType);
         this.memorySize = memorySize;
     }
