@@ -2,7 +2,7 @@ package com.epam.training.parsing;
 
 import javax.xml.validation.Schema;
 
-public class DeviceParcerFactory {
+public class DeviceParserFactory {
 
     public static DeviceParser create(ParserType parserType){
 

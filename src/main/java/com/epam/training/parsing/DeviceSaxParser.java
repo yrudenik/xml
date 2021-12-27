@@ -4,7 +4,6 @@ import com.epam.training.data.CustomParserException;
 import com.epam.training.entity.Device;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
@@ -17,23 +16,22 @@ import java.util.List;
 public class DeviceSaxParser implements DeviceParser{
 
     private static final Logger LOGGER = LogManager.getLogger();
-    private final DeviceHandler deviceHandler = new DeviceHandler();
 
+    @Override
     public List<Device> parse(String xmlFilePath) throws CustomParserException {
+        DeviceHandler handler = new DeviceHandler();
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 
-        SAXParser saxParser = null;
         try {
-            saxParser = saxParserFactory.newSAXParser();
+            SAXParser saxParser = saxParserFactory.newSAXParser();
             XMLReader reader = saxParser.getXMLReader();
-            reader.setErrorHandler(new DeviceErrorHandler());
-            reader.setContentHandler((ContentHandler) deviceHandler);
+            reader.setContentHandler(handler);
             reader.parse(xmlFilePath);
             LOGGER.info("xmlFile is parsed");
 
         } catch (SAXException | IOException | ParserConfigurationException e) {
             throw new CustomParserException("SAX parsing exception: ", e);
         }
-        return null;
+        return handler.getDevices();
     }
 }

@@ -30,7 +30,6 @@ public class DeviceJaxbParser implements DeviceParser{
         } catch (JAXBException | FileNotFoundException e) {
             throw new CustomParserException("Jaxb parsing exception: ", e);
         }
-
         return deviceList;
     }
 }

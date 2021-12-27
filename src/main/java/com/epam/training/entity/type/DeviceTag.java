@@ -12,9 +12,10 @@ public enum DeviceTag {
     ORIGIN("origin"),
     DEVICE_TYPE("device-type"),
     DEVICE_FUNCTION("device-function"),
-    IS_PERIPHERAL("isPeripheral"),
-    MEMORY_SIZE("memorySize"),
-    NUMBER_OF_BUTTONS("numberOfButtons");
+    ISPERIPHERAL("isPeripheral"),
+    MEMORYSIZE("memorySize"),
+    NUMBEROFBUTTONS("numberOfButtons");
+
 
     private final String value;
     private static final char UNDERSCORE = '_';
@@ -30,8 +31,7 @@ public enum DeviceTag {
 
     public static DeviceTag valueOfXmlTag(String tag) {
         tag = tag.toUpperCase().replace(HYPHEN, UNDERSCORE);
-
         return DeviceTag.valueOf(tag);
     }
-    }
+}
 

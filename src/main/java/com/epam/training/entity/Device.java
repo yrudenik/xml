@@ -19,10 +19,10 @@ public abstract class Device {
     private double price;
     @XmlElement(name = "origin", namespace = "http://www.training.epam.com/devices", required = true)
     private Origin origin;
-    @XmlElement(name = "DeviceType", namespace = "http://www.training.epam.com/devices", required = true)
+    @XmlElement(name = "device-type", namespace = "http://www.training.epam.com/devices", required = true)
     private DeviceType deviceType = new DeviceType();
 
-    public Device(String id, String name, double price, Origin origin, DeviceType deviceType){
+    public Device(String id, String name, double price, Origin origin, DeviceType deviceType) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -31,7 +31,6 @@ public abstract class Device {
     }
 
     public Device() {
-
     }
 
     public String getId() {

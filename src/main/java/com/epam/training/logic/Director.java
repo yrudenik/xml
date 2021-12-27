@@ -2,7 +2,7 @@ package com.epam.training.logic;
 
 import com.epam.training.data.CustomParserException;
 import com.epam.training.entity.Device;
-import com.epam.training.parsing.DeviceParcerFactory;
+import com.epam.training.parsing.DeviceParserFactory;
 import com.epam.training.parsing.DeviceParser;
 import com.epam.training.parsing.ParserType;
 import org.apache.logging.log4j.LogManager;
@@ -22,7 +22,7 @@ public class Director {
 
             try {
                 if (validator.isValid(xmlPath, xsdPath)) {
-                    DeviceParser parser = DeviceParcerFactory.create(parserType);
+                    DeviceParser parser = DeviceParserFactory.create(parserType);
 
                     devices = parser.parse(xmlPath);
                 }

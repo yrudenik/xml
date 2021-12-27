@@ -12,12 +12,13 @@ public class StorageDevice extends Device {
 
     @XmlElement(name = "memorySize", namespace = "http://www.training.epam.com/devices", required = true)
     private int memorySize;
-    public StorageDevice() {
-        super();
-    }
+
     public StorageDevice(String id, String name, double price, Origin origin, DeviceType deviceType, int memorySize) {
         super(id, name, price, origin, deviceType);
         this.memorySize = memorySize;
+    }
+
+    public StorageDevice() {
     }
 
     public void setMemorySize(int memorySize) {

@@ -2,9 +2,10 @@ package com.epam.training.entity.type;
 
 public enum TypeOfDevice {
 
-    STORAGE_DEVICE,
-    INPUT_DEVICE;
+    STORAGE_DEVICE("storage-device"),
+    INPUT_DEVICE("input-device");
 
+    private final String value;
     private static final String UNDERSCORE = "_";
     private static final String HYPHEN = "-";
 
@@ -14,5 +15,16 @@ public enum TypeOfDevice {
         result = result.toLowerCase();
         result = result.replace(UNDERSCORE, HYPHEN);
         return result;
+    }
+
+    TypeOfDevice(String value) {
+        this.value = value;
+    }
+    public String getValue() {
+        return value;
+    }
+    public static TypeOfDevice valueOfXmlTag(String tag) {
+        tag = tag.toUpperCase().replace(HYPHEN, UNDERSCORE);
+        return TypeOfDevice.valueOf(tag);
     }
 }

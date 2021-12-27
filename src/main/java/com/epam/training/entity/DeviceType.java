@@ -1,21 +1,19 @@
 package com.epam.training.entity;
 
-import org.w3c.dom.Node;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DeviceType", propOrder = {"device-function", "isPeripheral"})
+@XmlType(name = "DeviceType", propOrder = {"deviceFunction", "isPeripheral"})
 public class DeviceType {
     @XmlElement(name = "device-function", namespace = "http://www.training.epam.com/devices", required = true)
-    private String deviceFunction;
+    private DeviceFunction deviceFunction;
     @XmlElement(name = "isPeripheral", namespace = "http://www.training.epam.com/devices", required = true)
     boolean isPeripheral;
 
-    public DeviceType(String deviceFunction, boolean isPeripheral) {
+    public DeviceType(DeviceFunction deviceFunction, boolean isPeripheral) {
         this.deviceFunction = deviceFunction;
         this.isPeripheral = isPeripheral;
     }
@@ -23,7 +21,7 @@ public class DeviceType {
     public DeviceType() {
     }
 
-    public String getDeviceFunction() {
+    public DeviceFunction getDeviceFunction() {
         return deviceFunction;
     }
 
@@ -31,7 +29,7 @@ public class DeviceType {
         return isPeripheral;
     }
 
-    public void setDeviceFunction(String deviceFunction) {
+    public void setDeviceFunction(DeviceFunction deviceFunction) {
         this.deviceFunction = deviceFunction;
     }
 
@@ -62,8 +60,7 @@ public class DeviceType {
 
     @Override
     public String toString() {
-        return String.format("\nDeviceFunction = %s\nIsPeripheral = %s\n",
-                deviceFunction, isPeripheral);
+        return String.format("DeviceType{ deviceFunction = %s , isPeripheral = %s }", deviceFunction, isPeripheral);
     }
 
 

@@ -1,13 +1,11 @@
 package com.epam.training.parsing;
 
-import com.epam.training.entity.Device;
-import com.epam.training.entity.InputDevice;
-import com.epam.training.entity.StorageDevice;
+import com.epam.training.entity.*;
 import com.epam.training.entity.type.DeviceTag;
-import jdk.internal.org.xml.sax.Attributes;
-import jdk.internal.org.xml.sax.helpers.DefaultHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.xml.sax.Attributes;
+import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -20,14 +18,14 @@ public class DeviceHandler extends DefaultHandler {
     private final List<Device> devices = new ArrayList<>();
     private Device currentDevice;
     private DeviceTag currentTag;
-    private final EnumSet<DeviceTag> textTags = EnumSet.range(DeviceTag.NAME, DeviceTag.PRICE);
+    private final EnumSet<DeviceTag> textTags = EnumSet.range(DeviceTag.NAME, DeviceTag.NUMBEROFBUTTONS);
 
     public List<Device> getDevices() {
         return devices;
     }
 
     @Override
-    public void startElement(String uri, String localName, String indexName, Attributes attributes) {
+    public void startElement (String uri, String localName, String indexName, Attributes attributes) {
         String storageDeviceTag = DeviceTag.STORAGE_DEVICE.getValue();
         String inputDeviceTag = DeviceTag.INPUT_DEVICE.getValue();
 
@@ -59,7 +57,6 @@ public class DeviceHandler extends DefaultHandler {
         StorageDevice storageDevice;
         InputDevice inputDevice;
 
-
         if (currentTag != null) {
             switch (currentTag) {
                 case ID:
@@ -71,18 +68,22 @@ public class DeviceHandler extends DefaultHandler {
                 case PRICE:
                     currentDevice.setPrice(Double.parseDouble(data));
                     break;
-                case DEVICE_FUNCTION:
-                    currentDevice.getDeviceType().setDeviceFunction(data);
+                case ORIGIN:
+                    Origin origin = Origin.valueOf(data);
+                    currentDevice.setOrigin(origin);
                     break;
-                case IS_PERIPHERAL:
+                case DEVICE_FUNCTION:
+                    currentDevice.getDeviceType().setDeviceFunction(DeviceFunction.valueOf(data));
+                    break;
+                case ISPERIPHERAL:
                     currentDevice.getDeviceType().setPeripheral(Boolean.parseBoolean(data));
                     break;
-                case MEMORY_SIZE:
+                case MEMORYSIZE:
                     storageDevice = (StorageDevice) currentDevice;
                     storageDevice.setMemorySize(Integer.parseInt(data));
                     currentDevice = storageDevice;
                     break;
-                case NUMBER_OF_BUTTONS:
+                case NUMBEROFBUTTONS:
                     inputDevice = (InputDevice) currentDevice;
                     inputDevice.setNumberOfButtons(Integer.parseInt(data));
                     currentDevice = inputDevice;
