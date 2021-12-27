@@ -57,27 +57,27 @@ public class DeviceDomParser implements DeviceParser {
         switch (typeOfDevice) {
             case STORAGE_DEVICE:
                 device = new StorageDevice();
-                ((StorageDevice) device).setMemorySize(Integer.parseInt(getElementTextContent(deviceElement, DeviceTag.MEMORYSIZE.toString())));
+                ((StorageDevice) device).setMemorySize(Integer.parseInt(getElementTextContent(deviceElement, DeviceTag.MEMORYSIZE.getValue())));
                 break;
             case INPUT_DEVICE:
                 device = new InputDevice();
-                ((InputDevice) device).setNumberOfButtons(Integer.parseInt(getElementTextContent(deviceElement, DeviceTag.NUMBEROFBUTTONS.toString())));
+                ((InputDevice) device).setNumberOfButtons(Integer.parseInt(getElementTextContent(deviceElement, DeviceTag.NUMBEROFBUTTONS.getValue())));
                 break;
             default:
                 throw new CustomParserException("Invalid type of device");
         }
-        device.setId(deviceElement.getAttribute(DeviceTag.ID.toString()));
-        String name = getElementTextContent(deviceElement, DeviceTag.NAME.toString());
+        device.setId(deviceElement.getAttribute(DeviceTag.ID.getValue()));
+        String name = getElementTextContent(deviceElement, DeviceTag.NAME.getValue());
         device.setName(name);
-        double price = Double.parseDouble(getElementTextContent(deviceElement, DeviceTag.PRICE.toString()));
+        double price = Double.parseDouble(getElementTextContent(deviceElement, DeviceTag.PRICE.getValue()));
         device.setPrice(price);
-        Origin origin = Origin.valueOf(getElementTextContent(deviceElement, DeviceTag.ORIGIN.toString()));
+        Origin origin = Origin.valueOf(getElementTextContent(deviceElement, DeviceTag.ORIGIN.getValue()));
         device.setOrigin(origin);
-        String deviceTypeTagName = DeviceTag.DEVICE_TYPE.toString();
+        String deviceTypeTagName = DeviceTag.DEVICE_TYPE.getValue();
         Element deviceType = (Element) deviceElement.getElementsByTagName(deviceTypeTagName).item(0);
-        DeviceFunction deviceFunction = DeviceFunction.valueOf(getElementTextContent(deviceType, DeviceTag.DEVICE_FUNCTION.toString()));
+        DeviceFunction deviceFunction = DeviceFunction.valueOf(getElementTextContent(deviceType, DeviceTag.DEVICE_FUNCTION.getValue()));
         device.getDeviceType().setDeviceFunction(deviceFunction);
-        boolean isPeripheral = Boolean.parseBoolean(getElementTextContent(deviceType, DeviceTag.ISPERIPHERAL.toString()));
+        boolean isPeripheral = Boolean.parseBoolean(getElementTextContent(deviceType, DeviceTag.ISPERIPHERAL.getValue()));
         device.getDeviceType().setPeripheral(isPeripheral);
         return device;
     }
@@ -86,10 +86,6 @@ public class DeviceDomParser implements DeviceParser {
         NodeList nodeList = deviceElement.getElementsByTagName(tagName);
         Node node = nodeList.item(0);
         return node.getTextContent();
-    }
-
-    private List<Device> getDeviceList() {
-        return deviceList;
     }
 }
 

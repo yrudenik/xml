@@ -5,17 +5,16 @@ public enum DeviceTag {
     DEVICES("devices"),
     STORAGE_DEVICE("storage-device"),
     INPUT_DEVICE("input-device"),
-
     ID("id"),
+    DEVICE_TYPE("device-type"),
+
     NAME("name"),
     PRICE("price"),
     ORIGIN("origin"),
-    DEVICE_TYPE("device-type"),
     DEVICE_FUNCTION("device-function"),
     ISPERIPHERAL("isPeripheral"),
     MEMORYSIZE("memorySize"),
     NUMBEROFBUTTONS("numberOfButtons");
-
 
     private final String value;
     private static final char UNDERSCORE = '_';
