@@ -106,5 +106,4 @@ public abstract class Device {
         return String.format("\nID = %s\nName = %s\nPrice = %s\nOrigin = %s\nDeviceType = %s\n",
                 id, name, price, origin, deviceType);
     }
-
 }

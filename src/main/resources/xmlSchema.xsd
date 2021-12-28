@@ -30,7 +30,7 @@
         <complexContent>
             <extension base="tns:device">
                 <sequence>
-                    <element name="memorySize" type="tns:positiveInteger"/>
+                    <element name="memory-size" type="tns:positiveInteger"/>
                 </sequence>
             </extension>
         </complexContent>
@@ -40,7 +40,7 @@
         <complexContent>
             <extension base="tns:device">
                 <sequence>
-                    <element name="numberOfButtons" type="tns:positiveInteger"/>
+                    <element name="number-of-buttons" type="tns:positiveInteger"/>
                 </sequence>
             </extension>
         </complexContent>
@@ -68,7 +68,7 @@
     <complexType name="type">
         <sequence>
             <element name="device-function" type="tns:function"/>
-            <element name="isPeripheral" type="boolean"/>
+            <element name="is-peripheral" type="boolean"/>
         </sequence>
     </complexType>
 

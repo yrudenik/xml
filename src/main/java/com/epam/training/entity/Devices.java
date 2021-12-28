@@ -16,14 +16,17 @@ public class Devices {
 
     private List<Device> deviceList = new ArrayList<>();
 
-    public Devices(){
+    public Devices() {
     }
+
     public void setDevices(List<Device> deviceList) {
         this.deviceList = deviceList;
     }
-    public boolean add(Device device){
+
+    public boolean add(Device device) {
         return deviceList.add(device);
     }
+
     public List<Device> getDevices() {
         return deviceList;
     }

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 public class DeviceType {
     @XmlElement(name = "device-function", namespace = "http://www.training.epam.com/devices", required = true)
     private DeviceFunction deviceFunction;
-    @XmlElement(name = "isPeripheral", namespace = "http://www.training.epam.com/devices", required = true)
+    @XmlElement(name = "is-peripheral", namespace = "http://www.training.epam.com/devices", required = true)
     boolean isPeripheral;
 
     public DeviceType(DeviceFunction deviceFunction, boolean isPeripheral) {
@@ -62,6 +62,4 @@ public class DeviceType {
     public String toString() {
         return String.format("DeviceType{ deviceFunction = %s , isPeripheral = %s }", deviceFunction, isPeripheral);
     }
-
-
 }

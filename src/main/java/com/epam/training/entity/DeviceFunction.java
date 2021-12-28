@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name = "DeviceFunction")
 @XmlEnum
-public enum  DeviceFunction {
+public enum DeviceFunction {
 
     @XmlEnumValue("INPUT_OUTPUT")
     INPUT_OUTPUT,

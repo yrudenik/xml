@@ -13,9 +13,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-public class DeviceJaxbParser implements DeviceParser{
+public class DeviceJaxbParser implements DeviceParser {
 
     private static final Logger LOGGER = LogManager.getLogger();
+
     @Override
     public List<Device> parse(String xmlFilePath) throws CustomParserException {
         List<Device> deviceList;

@@ -10,18 +10,21 @@ import java.util.Objects;
 @XmlType(name = "InputDevice", propOrder = {"numberOfButtons"})
 public class InputDevice extends Device {
 
-    @XmlElement(name = "numberOfButtons", namespace = "http://www.training.epam.com/devices", required = true)
+    @XmlElement(name = "number-of-buttons", namespace = "http://www.training.epam.com/devices", required = true)
     private int numberOfButtons;
+
     public InputDevice(String id, String name, double price, Origin origin, DeviceType deviceType, int numberOfButtons) {
         super(id, name, price, origin, deviceType);
         this.numberOfButtons = numberOfButtons;
     }
+
     public InputDevice() {
     }
 
     public int getNumberOfButtons() {
         return numberOfButtons;
     }
+
     public void setNumberOfButtons(int numberOfButtons) {
         this.numberOfButtons = numberOfButtons;
     }

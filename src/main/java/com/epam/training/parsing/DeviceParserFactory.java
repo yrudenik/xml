@@ -1,12 +1,10 @@
 package com.epam.training.parsing;
 
-import javax.xml.validation.Schema;
-
 public class DeviceParserFactory {
 
-    public static DeviceParser create(ParserType parserType){
+    public static DeviceParser create(ParserType parserType) {
 
-        switch (parserType){
+        switch (parserType) {
             case DOM:
                 return new DeviceDomParser();
             case SAX:

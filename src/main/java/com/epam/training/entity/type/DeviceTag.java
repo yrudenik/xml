@@ -12,9 +12,9 @@ public enum DeviceTag {
     PRICE("price"),
     ORIGIN("origin"),
     DEVICE_FUNCTION("device-function"),
-    ISPERIPHERAL("isPeripheral"),
-    MEMORYSIZE("memorySize"),
-    NUMBEROFBUTTONS("numberOfButtons");
+    IS_PERIPHERAL("is-peripheral"),
+    MEMORY_SIZE("memory-size"),
+    NUMBER_OF_BUTTONS("number-of-buttons");
 
     private final String value;
     private static final char UNDERSCORE = '_';

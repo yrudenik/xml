@@ -20,9 +20,11 @@ public enum TypeOfDevice {
     TypeOfDevice(String value) {
         this.value = value;
     }
+
     public String getValue() {
         return value;
     }
+
     public static TypeOfDevice valueOfXmlTag(String tag) {
         tag = tag.toUpperCase().replace(HYPHEN, UNDERSCORE);
         return TypeOfDevice.valueOf(tag);

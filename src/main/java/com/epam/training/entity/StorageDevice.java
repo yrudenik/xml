@@ -10,7 +10,7 @@ import java.util.Objects;
 @XmlType(name = "StorageDevice", propOrder = {"memorySize"})
 public class StorageDevice extends Device {
 
-    @XmlElement(name = "memorySize", namespace = "http://www.training.epam.com/devices", required = true)
+    @XmlElement(name = "memory-size", namespace = "http://www.training.epam.com/devices", required = true)
     private int memorySize;
 
     public StorageDevice(String id, String name, double price, Origin origin, DeviceType deviceType, int memorySize) {

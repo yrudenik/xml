@@ -13,7 +13,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.List;
 
-public class DeviceSaxParser implements DeviceParser{
+public class DeviceSaxParser implements DeviceParser {
 
     private static final Logger LOGGER = LogManager.getLogger();
 

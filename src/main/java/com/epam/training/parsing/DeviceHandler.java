@@ -18,14 +18,14 @@ public class DeviceHandler extends DefaultHandler {
     private final List<Device> devices = new ArrayList<>();
     private Device currentDevice;
     private DeviceTag currentTag;
-    private final EnumSet<DeviceTag> textTags = EnumSet.range(DeviceTag.NAME, DeviceTag.NUMBEROFBUTTONS);
+    private final EnumSet<DeviceTag> textTags = EnumSet.range(DeviceTag.NAME, DeviceTag.NUMBER_OF_BUTTONS);
 
     public List<Device> getDevices() {
         return devices;
     }
 
     @Override
-    public void startElement (String uri, String localName, String indexName, Attributes attributes) {
+    public void startElement(String uri, String localName, String indexName, Attributes attributes) {
         String storageDeviceTag = DeviceTag.STORAGE_DEVICE.getValue();
         String inputDeviceTag = DeviceTag.INPUT_DEVICE.getValue();
 
@@ -75,15 +75,15 @@ public class DeviceHandler extends DefaultHandler {
                 case DEVICE_FUNCTION:
                     currentDevice.getDeviceType().setDeviceFunction(DeviceFunction.valueOf(data));
                     break;
-                case ISPERIPHERAL:
+                case IS_PERIPHERAL:
                     currentDevice.getDeviceType().setPeripheral(Boolean.parseBoolean(data));
                     break;
-                case MEMORYSIZE:
+                case MEMORY_SIZE:
                     storageDevice = (StorageDevice) currentDevice;
                     storageDevice.setMemorySize(Integer.parseInt(data));
                     currentDevice = storageDevice;
                     break;
-                case NUMBEROFBUTTONS:
+                case NUMBER_OF_BUTTONS:
                     inputDevice = (InputDevice) currentDevice;
                     inputDevice.setNumberOfButtons(Integer.parseInt(data));
                     currentDevice = inputDevice;

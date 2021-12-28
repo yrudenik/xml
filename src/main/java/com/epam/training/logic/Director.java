@@ -19,18 +19,14 @@ public class Director {
 
         public List<Device> createDevices(String xmlPath, String xsdPath, ParserType parserType) {
             List<Device> devices = new ArrayList<>();
-
             try {
                 if (validator.isValid(xmlPath, xsdPath)) {
                     DeviceParser parser = DeviceParserFactory.create(parserType);
-
                     devices = parser.parse(xmlPath);
                 }
             } catch (CustomParserException | ParserConfigurationException e) {
                 LOGGER.error("Error in creating devices:", e);
             }
-
             return devices;
         }
-
     }
