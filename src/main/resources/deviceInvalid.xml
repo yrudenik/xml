@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.training.epam.com/devices"
+         xsi:schemaLocation="http://www.training.epam.com/devices xmlSchema.xsd">
+    <storage-device id="id111">
+        <device-name>hardDisk</device-name>
+        <price>99.9</price>
+        <origin>USA</origin>
+        <device-type>
+            <device-function>INFORMATION_STORAGE</device-function>
+            <isPeripheral>false</isPeripheral>
+        </device-type>
+        <memorySize>500</memorySize>
+    </storage-device>
+
+    <storage-device id="id222">
+        <name>flashUSB</name>
+        <price>15.5</price>
+        <origin>CHINA</origin>
+        <device-type>
+            <device-function>INFORMATION_STORAGE</device-function>
+            <isPeripheral>true</isPeripheral>
+        </device-type>
+        <memorySize>64</memorySize>
+    </storage-device>
+
+    <input-device id="id333">
+        <name>keyboard</name>
+        <price>53.0</price>
+        <origin>GERMANY</origin>
+        <device-type>
+            <device-function>INPUT_OUTPUT</device-function>
+            <isPeripheral>true</isPeripheral>
+        </device-type>
+        <numberOfButtons>104</numberOfButtons>
+    </input-device>
+
+    <input-device id="id444">
+        <name>mouse</name>
+        <price>25.6</price>
+        <origin>CHINA</origin>
+        <device-type>
+            <device-function>INPUT_OUTPUT</device-function>
+            <isPeripheral>true</isPeripheral>
+        </device-type>
+        <numberOfButtons>3</numberOfButtons>
+    </input-device>
+
+</devices>
